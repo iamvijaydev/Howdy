@@ -1,0 +1,11 @@
+<li style="color: <%= color %>"
+	<% if (userName === 'Server') { %>
+	    class="info"
+	<% } %>
+>
+	<% if (userName != 'Server') { %>
+	    <strong><%= userName %>: </strong>
+	<% } %>
+	<span><%= msg %></span>
+	<time datetime="<%= dateTime %>"><%= timeStamp %></time>
+</li>
