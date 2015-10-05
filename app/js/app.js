@@ -1,6 +1,6 @@
 /**
 * Define the app as a requirejs module
-* 
+*
 * @param {Class} User - Model for holding user data
 * @param {Class} GetUserInfo - View for fetching user info
 * @paran {Class} AppHeader - View for app header
@@ -29,7 +29,7 @@ define([
 
 		// CHANGE THIS
 		// your local server ip and desired port
-		// this.socket = io.connect('http://10.2.0.167:167');
+		this.socket = io.connect('http://10.9.0.105:9999');
 
 		this.hasNotify = window.webkitNotifications;
 
@@ -42,7 +42,11 @@ define([
 		this.models.user = new User();
 
 		this.views.getUserInfo = new GetUserInfo({ model: this.models.user });
+			console.log(this.views.getUserInfo);
 		this.views.appHeader = new AppHeader({ model: this.models.user });
+
+
+
 		this.views.connectedUsers = new ConnectedUsers();
 		this.views.conversations = new Conversations({ model: this.models.user });
 		this.views.sendMsg = new SendMsg();
@@ -51,13 +55,13 @@ define([
 	App.prototype.notify = function( userName, msg ) {
 		if ( !!!this.hasNotify || msg === 'You have connected' ) {
 			return;
-		};
+		}
 
 		var userName = userName === 'Server' ? 'Howdy!' : userName + ' - Howdy!'
 		var notice = window.webkitNotifications.createNotification( 'howdy.png', userName, msg );
 		notice.show();
 		_.delay(function() {
-			notice.cancel()
+			notice.cancel();
 		}, 3000);
 	};
 

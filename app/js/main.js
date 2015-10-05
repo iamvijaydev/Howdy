@@ -40,7 +40,5 @@ requirejs.config({
 require(['app'], function( App ) {
 
 	window.Howdy = new App();
-
 	console.log( Howdy );
-
 });

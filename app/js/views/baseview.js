@@ -11,8 +11,8 @@ define(function() {
             if ( this.socketEvents && _.size(this.socketEvents) > 0 ) {
                 setTimeout(function() {
                     self.delegateSocketEvents( self.socketEvents );
-                }, 1);       
-            };
+                }, 1);
+            }
         },
 
         delegateSocketEvents: function( events ) {
@@ -24,11 +24,11 @@ define(function() {
 
                 if ( !_.isFunction(method) ) {
                     method = self[value];
-                };
+                }
 
                 if ( !method ) {
                     throw new Error('Method "' + events[key] + '" does not exist');
-                };
+                }
 
                 method = _.bind(method, self);
                 Howdy.socket.on(key, method);
