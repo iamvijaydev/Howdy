@@ -6,7 +6,7 @@ var http = require('http');
 var path = require('path');
 var app = express();
 app.configure(function() {
-	
+
 	// IF NEEDED, CHANGE THIS
 	// Server authentication
 	// app.use(express.basicAuth(function(user, pass) {
@@ -30,12 +30,12 @@ app.get("/", function(req, res) {
 });
 
 // server listening port
-server.listen(167);
+server.listen(9999);
 
 // store the connected users
 var users = {};
 
-// corrected now 
+// corrected now
 var now = function() {
 	var dt = new Date();
 	var mh = dt.getHours() < 10 ? '0' + dt.getHours() : dt.getHours();

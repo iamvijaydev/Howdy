@@ -12,7 +12,7 @@ define([
 
 		initialize: function() {
 			this.userName = prompt("Choose a username");
-			this.userName = this.userName === '' ? 'An idiot who didnt set username' : this.userName;
+			this.userName = this.userName === '' ? 'An asshole who didnt set username' : this.userName;
 			this.__initialize();
 
 			this.colorArray = [
@@ -38,6 +38,10 @@ define([
 		},
 
 		onConnect: function() {
+
+			console.log(this.userName);
+			console.log(this.model);
+
 			var color = this.randomColor();
 
 			this.model.set({
@@ -46,12 +50,11 @@ define([
 			});
 
 			Howdy.socket.emit('adduser', {
-				userName: this.userName, 
+				userName: this.userName,
 				color: color
 			});
 		}
 	});
-
 	return GetUserInfo;
 
 });
